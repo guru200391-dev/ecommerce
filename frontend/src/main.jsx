@@ -13,18 +13,45 @@ import Profile from "./pages/User/Profile";
 import UserList from "./pages/Admin/UserList";
 import PrivateRoute from "./components/PrivateRoute";
 import CategoryList from "./pages/Admin/CategoryList";
+import AdminProductList from "./pages/Admin/ProductList";
+import ProductUpdate from "./pages/Admin/ProductUpdate";
+import AllProducts from "./pages/Admin/AllProducts";
+import Favorites from "./pages/Products/Favorites.jsx";
+import Home from "./pages/Home.jsx";
+import ProductDetails from "./pages/Products/ProductDetails.jsx";
+import Cart from "./pages/Cart.jsx";
+import Shop from "./pages/Shop.jsx";
+import Shipping from "./pages/Orders/Shipping.jsx";
+import PlaceOrder from "./pages/Orders/PlaceOrder.jsx";
+import Order from "./pages/Orders/Order.jsx";
+import OrderList from "./pages/Admin/OrderList.jsx";
+import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
        <Route path="/login" element={<Login />} />
        <Route path="/register" element={<Register />} />
+         <Route index={true} path="/" element={<Home />} />
+           <Route path="/favorite" element={<Favorites />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+             <Route path="/cart" element={<Cart />} />
+              <Route path="/shop" element={<Shop />} />
 
       <Route path="" element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/placeorder" element={<PlaceOrder />} />
+             <Route path="/order/:id" element={<Order />} />
       </Route>
       <Route path="/admin" element={<AdminRoute />}>
         <Route path="userlist" element={<UserList />} />
           <Route path="categorylist" element={<CategoryList />} />
+          <Route path="productlist" element={<AdminProductList />} />
+           <Route path="product/update/:_id" element={<ProductUpdate />} />
+            <Route path="productlist/:pageNumber" element={<AdminProductList />} />
+            <Route path="allproductslist" element={<AllProducts />} />
+            <Route path="orderlist" element={<OrderList />} />
+             <Route path="dashboard" element={<AdminDashboard />} />
       </Route>
     </Route>
   ))
